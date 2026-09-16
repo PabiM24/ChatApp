@@ -35,10 +35,13 @@ public class Login {
     
     // Cellphone number should start with +27 and not more than 10 numbers
     public boolean checkCellphoneNumber(){
-        return cellphoneNumber.startsWith("+27") && cellphoneNumber.length() <=10;
+        if (!cellphoneNumber.startsWith("+27")) {
+            return false;
+        }
+        String numberPart = cellphoneNumber.substring(3);
+        return numberPart.length() <= 10 && numberPart.matches("\\d+");
     }
-      
-    
+       
     //password should be atleast 8 characters long with a number, special character and capital
     public boolean checkPassword(){
         boolean hasCapital = false;
@@ -60,8 +63,11 @@ public class Login {
         }
        return password.length() >= 8 && hasCapital && hasNumber && hasSpecialCharacter;
     }
+    
+    
     //a method that will verify if the requirements were met
     public String registerUser(){
+        
         if (!checkUserName()){
             return "Username is not correctly formatted, please ensure that your"
                     + "useername contains and underscore and is no more than five characters long.";
@@ -73,16 +79,19 @@ public class Login {
             return "Username successfully captured. Password successfully captured.";
         }
     }
+    
+    
         //Check if requirements of the username and password entered in the login are correct
         //to match what was saved when the user was registering
     public boolean loginUser (String enteredUserName, String enteredPassword){
             return username.equals(enteredUserName) && password.equals(enteredPassword);
     }
     
+    
     //the user authentication messages
     public String returnLoginStatus(boolean loginSuccess){
         if (loginSuccess){
-            return "Welcome" + firstName + "," + lastName + "it is great to see you again.";
+            return "Welcome " + firstName + "," + lastName + " it is great to see you again.";
                     }else{
             return "Username or password is incorrect, please try again.";
         }
