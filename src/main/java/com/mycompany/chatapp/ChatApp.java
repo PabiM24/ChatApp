@@ -54,7 +54,7 @@ public class ChatApp {
                  
              }else if (choice.equals("2")){  //Login
                  
-                 if (registeredUser == null) {
+               if (registeredUser == null) {
                      System.out.println("You have not registred. Please register first.");
                  }else{
                      System.out.print("Enter your username: "); 
