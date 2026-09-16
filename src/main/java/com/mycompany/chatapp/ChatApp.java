@@ -21,7 +21,8 @@ public class ChatApp {
          
          //loop to keep showing the menu until the user chooses to exit
          while (running){
-             System.out.println("\nWelcome to the Chat App");
+             System.out.println("\n11"
+                     + "Welcome to the Chat App");
              System.out.println("1.Register");
              System.out.println("2.Login");
              System.out.println("3.Exit");
