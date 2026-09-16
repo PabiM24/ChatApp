@@ -34,7 +34,7 @@ public class Login {
     
     
     // Cellphone number should start with +27 and not more than 10 numbers
-    public boolean cellphoneNumber(){
+    public boolean checkCellphoneNumber(){
         return cellphoneNumber.startsWith("+27") && cellphoneNumber.length() <=10;
     }
       
@@ -87,5 +87,7 @@ public class Login {
             return "Username or password is incorrect, please try again.";
         }
         }
+
+   
     }
 
