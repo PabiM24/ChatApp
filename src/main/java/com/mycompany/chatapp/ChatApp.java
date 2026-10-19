@@ -44,7 +44,7 @@ public class ChatApp {
     }
 
 
-    // ===== Part 1: register and login =====
+    // register and login 
     private static Login registerNewUser(Scanner input) {
         System.out.println("Enter your first name: ");
         String firstName = input.nextLine();
@@ -140,7 +140,7 @@ public class ChatApp {
         return number;
     }
 
-    // the for loop counter is the message number: 0, 1, 2...
+    // the for loop counter is the message number 0, 1, 2
     private static void enterAllMessages(Scanner input, int numberOfMessages) {
         for (int messageNumber = 0; messageNumber < numberOfMessages; messageNumber++) {
 
