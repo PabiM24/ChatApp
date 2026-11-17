@@ -47,7 +47,7 @@ public class Message {
         this.messageHash = createMessageHash();
     }
 
-    // ===== Getters =====
+    //  Getters
     public String getMessageID() {
         return messageID;
     }
@@ -114,7 +114,7 @@ public class Message {
                 + "; please reduce the size.";
     }
 
-    // example: 00:0:HITONIGHT
+    
     public String createMessageHash() {
         String[] words = messageText.trim().split("\\s+");
         String firstWord = removeSymbols(words[0]);
@@ -170,11 +170,11 @@ public class Message {
         return sentMessages.size();
     }
 
-    // ===================================================================
-    // PART 3: storing, reading and displaying messages
-    // ===================================================================
+    
+    // PART 3 iqala
+    
 
-    // saves a message in the JSON file (the file is read first so older messages are kept)
+    // saves a message in the JSON file
     public void storeMessage() {
         loadStoredMessagesFromFile();
         storedMessages.add(this);
@@ -210,7 +210,7 @@ public class Message {
         }
     }
 
-    // reads the JSON file and fills the Stored Messages array (no hard-coding)
+    // reads the JSON file and fills the Stored Messages array 
     public static void loadStoredMessagesFromFile() {
         storedMessages.clear();
 
@@ -255,7 +255,7 @@ public class Message {
         refreshHashAndIdArrays();
     }
 
-    // takes the value from a line such as:   "recipient": "+27838884567",
+    // takes the value from a line such as   recipient "+27838884567",
     private static String readJsonValue(String line) {
         String value = line.substring(line.indexOf(":") + 1).trim();
 
@@ -309,7 +309,7 @@ public class Message {
         }
     }
 
-    // ===== Array getters (the arrays stay private) =====
+    // Array getters (the arrays stay private)
     public static ArrayList<String> getSentMessageTexts() {
         ArrayList<String> texts = new ArrayList<>();
         for (Message m : sentMessages) {
@@ -342,7 +342,7 @@ public class Message {
         return new ArrayList<>(messageIDs);
     }
 
-    // ===== 2a. Sender and recipient of all stored messages =====
+    // 2a. Sender and recipient of all stored messages 
     public static void setSender(String senderName) {
         currentSender = senderName;
     }
@@ -358,7 +358,7 @@ public class Message {
         return result;
     }
 
-    // ===== 2b. Longest stored message =====
+    // 2b. Longest stored message
     public static String getLongestStoredMessage() {
         if (storedMessages.isEmpty()) {
             return "There are no stored messages.";
@@ -372,7 +372,7 @@ public class Message {
         return longest.messageText;
     }
 
-    // ===== 2c. Search for a message ID =====
+    // 2c. Search for a message ID 
     // looks in the sent, disregarded and stored arrays; returns null if it is not found
     public static Message findMessageByID(String id) {
         for (Message m : sentMessages) {
@@ -402,7 +402,7 @@ public class Message {
                 + "Message: " + found.messageText;
     }
 
-    // ===== 2d. All messages (sent or stored) for one recipient =====
+    // 2d. All messages (sent or stored) for one recipient
     public static ArrayList<String> searchByRecipient(String recipientNumber) {
         ArrayList<String> results = new ArrayList<>();
         for (Message m : sentMessages) {
@@ -418,7 +418,7 @@ public class Message {
         return results;
     }
 
-    // ===== 2e. Delete a stored message using its hash =====
+    // 2e. Delete a stored message using its hash 
     public static String deleteByMessageHash(String hash) {
         for (int counter = 0; counter < storedMessages.size(); counter++) {
             Message m = storedMessages.get(counter);
@@ -432,7 +432,7 @@ public class Message {
         return "No stored message was found with the message hash " + hash + ".";
     }
 
-    // ===== 2f. Report with the full details of the messages =====
+    // 2f. Report with the full details of the messages 
     public static String displayReport() {
         String report = "========== MESSAGE REPORT ==========\n";
 
