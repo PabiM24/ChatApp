@@ -10,10 +10,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * Part 3 unit tests. They use the five test messages from the brief.
- * Each test saves to a temporary JSON file, so your real messages.json is not touched.
- */
 public class StoredMessagesTest {
 
     // Test Data Message 1 (Sent)
